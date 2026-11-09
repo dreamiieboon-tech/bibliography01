@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>เกมเรียงบรรณานุกรม APA6 | ท31205</title>
+  <meta name="description" content="เกมการศึกษาเรียงบรรณานุกรม รูปแบบ APA6 สำหรับรายวิชาห้องสมุดและสารสนเทศเพื่อการศึกษาค้นคว้า ท31205" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700;800&family=Noto+Sans+Thai:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Floating Particles Background -->
+  <div class="particles" id="particles"></div>
+
+  <!-- ===== SCREEN: HOME ===== -->
+  <div class="screen active" id="screen-home">
+    <div class="home-container">
+      <div class="badge-course">ท31205</div>
+      <div class="book-icon-wrap">
+        <div class="book-icon">📚</div>
+        <div class="sparkles">
+          <span class="sparkle">✨</span>
+          <span class="sparkle">⭐</span>
+          <span class="sparkle">✨</span>
+        </div>
+      </div>
+      <h1 class="home-title">เกมเรียงบรรณานุกรม</h1>
+      <h2 class="home-subtitle">รูปแบบ APA 6<sup>th</sup> Edition</h2>
+      <p class="home-desc">รายวิชา <strong>ห้องสมุดและสารสนเทศเพื่อการศึกษาค้นคว้า</strong><br/>ผู้สอน: <strong>นางสาวณภัทร บุญพูลเกิด</strong></p>
+
+      <div class="home-buttons">
+        <button class="btn btn-primary pulse" id="btn-learn" onclick="showScreen('screen-learn')">
+          <span class="btn-icon">📖</span> เรียนรู้บทเรียน
+        </button>
+        <button class="btn btn-secondary" id="btn-play" onclick="startGame()">
+          <span class="btn-icon">🎮</span> เล่นเกม
+        </button>
+      </div>
+
+      <div class="home-info-cards">
+        <div class="info-card">
+          <div class="info-icon">📗</div>
+          <div class="info-text">บรรณานุกรม<br/><strong>หนังสือ</strong></div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">🌐</div>
+          <div class="info-text">บรรณานุกรม<br/><strong>ออนไลน์</strong></div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">🏆</div>
+          <div class="info-text">สะสม<br/><strong>คะแนน</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SCREEN: LEARN ===== -->
+  <div class="screen" id="screen-learn">
+    <div class="learn-container">
+      <div class="learn-header">
+        <button class="btn-back" onclick="showScreen('screen-home')">← กลับ</button>
+        <h1 class="learn-title">📖 บทเรียน: การเขียนบรรณานุกรม APA6</h1>
+      </div>
+
+      <!-- Tab Navigation -->
+      <div class="tab-nav">
+        <button class="tab-btn active" id="tab-book-btn" onclick="switchTab('book')">📗 หนังสือ</button>
+        <button class="tab-btn" id="tab-online-btn" onclick="switchTab('online')">🌐 ออนไลน์</button>
+        <button class="tab-btn" id="tab-tips-btn" onclick="switchTab('tips')">💡 เคล็ดลับ</button>
+      </div>
+
+      <!-- Tab: Book -->
+      <div class="tab-content active" id="tab-book">
+        <div class="lesson-card">
+          <div class="lesson-card-header">
+            <span class="lesson-icon">📗</span>
+            <h2>บรรณานุกรมหนังสือ (Book Reference)</h2>
+          </div>
+          <div class="formula-box">
+            <div class="formula-label">📐 รูปแบบ</div>
+            <div class="formula-text">
+              ชื่อผู้แต่ง. (ปีพิมพ์). <em>ชื่อหนังสือ</em> (พิมพ์ครั้งที่ n). สถานที่พิมพ์: สำนักพิมพ์.
+            </div>
+          </div>
+
+          <div class="elements-grid">
+            <div class="element-card el-author">
+              <div class="el-num">1</div>
+              <div class="el-title">ชื่อผู้แต่ง</div>
+              <div class="el-desc">นามสกุล, ชื่อต้น. / ชื่อ นามสกุล.</div>
+              <div class="el-example">เช่น: สมศรี, วิภา. หรือ กรมวิชาการ.</div>
+            </div>
+            <div class="element-card el-year">
+              <div class="el-num">2</div>
+              <div class="el-title">ปีพิมพ์</div>
+              <div class="el-desc">ใส่ในวงเล็บ ตามด้วยจุด</div>
+              <div class="el-example">เช่น: (2566).</div>
+            </div>
+            <div class="element-card el-title-b">
+              <div class="el-num">3</div>
+              <div class="el-title">ชื่อหนังสือ</div>
+              <div class="el-desc">ตัวเอียง ตามด้วยจุด</div>
+              <div class="el-example">เช่น: <em>การเขียนรายงาน</em>.</div>
+            </div>
+            <div class="element-card el-edition">
+              <div class="el-num">4</div>
+              <div class="el-title">ครั้งที่พิมพ์</div>
+              <div class="el-desc">ใส่ในวงเล็บ (ถ้ามี)</div>
+              <div class="el-example">เช่น: (พิมพ์ครั้งที่ 3).</div>
+            </div>
+            <div class="element-card el-place">
+              <div class="el-num">5</div>
+              <div class="el-title">สถานที่พิมพ์</div>
+              <div class="el-desc">ชื่อเมือง ตามด้วยเครื่องหมาย :</div>
+              <div class="el-example">เช่น: กรุงเทพฯ:</div>
+            </div>
+            <div class="element-card el-publisher">
+              <div class="el-num">6</div>
+              <div class="el-title">สำนักพิมพ์</div>
+              <div class="el-desc">ชื่อสำนักพิมพ์ ตามด้วยจุด</div>
+              <div class="el-example">เช่น: โรงพิมพ์คุรุสภา.</div>
+            </div>
+          </div>
+
+          <div class="example-section">
+            <h3>✅ ตัวอย่างบรรณานุกรมหนังสือ</h3>
+            <div class="example-box">
+              <div class="example-item">
+                <div class="example-label">หนังสือทั่วไป (ผู้แต่งคนเดียว)</div>
+                <div class="example-ref">สุมาลี สังข์ศรี. (2561). <em>ห้องสมุดและบริการสารสนเทศ</em>. กรุงเทพฯ: โอเดียนสโตร์.</div>
+              </div>
+              <div class="example-item">
+                <div class="example-label">หนังสือ (พิมพ์ครั้งที่ระบุ)</div>
+                <div class="example-ref">ทิพวัลย์ สีจันทร์. (2563). <em>การสืบค้นสารสนเทศ</em> (พิมพ์ครั้งที่ 2). กรุงเทพฯ: สำนักพิมพ์จุฬาลงกรณ์มหาวิทยาลัย.</div>
+              </div>
+              <div class="example-item">
+                <div class="example-label">หนังสือ (หน่วยงานเป็นผู้แต่ง)</div>
+                <div class="example-ref">กรมวิชาการ. (2545). <em>หลักสูตรการศึกษาขั้นพื้นฐาน พุทธศักราช 2544</em>. กรุงเทพฯ: โรงพิมพ์คุรุสภาลาดพร้าว.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab: Online -->
+      <div class="tab-content" id="tab-online">
+        <div class="lesson-card">
+          <div class="lesson-card-header">
+            <span class="lesson-icon">🌐</span>
+            <h2>บรรณานุกรมออนไลน์ (Online Reference)</h2>
+          </div>
+          <div class="formula-box online">
+            <div class="formula-label">📐 รูปแบบ</div>
+            <div class="formula-text">
+              ชื่อผู้แต่ง. (ปีที่เผยแพร่). <em>ชื่อเรื่อง</em>. สืบค้นเมื่อ วัน เดือน ปี, จาก URL
+            </div>
+          </div>
+
+          <div class="elements-grid">
+            <div class="element-card el-author">
+              <div class="el-num">1</div>
+              <div class="el-title">ชื่อผู้แต่ง</div>
+              <div class="el-desc">นามสกุล, ชื่อต้น. / ชื่อเว็บไซต์.</div>
+              <div class="el-example">เช่น: จันทร์ศิริ, วีระ. หรือ ราชบัณฑิตยสถาน.</div>
+            </div>
+            <div class="element-card el-year">
+              <div class="el-num">2</div>
+              <div class="el-title">ปีที่เผยแพร่</div>
+              <div class="el-desc">ใส่ในวงเล็บ ถ้าไม่ทราบใช้ n.d.</div>
+              <div class="el-example">เช่น: (2566). หรือ (n.d.).</div>
+            </div>
+            <div class="element-card el-title-b">
+              <div class="el-num">3</div>
+              <div class="el-title">ชื่อเรื่อง/บทความ</div>
+              <div class="el-desc">ตัวเอียง ตามด้วยจุด</div>
+              <div class="el-example">เช่น: <em>การเขียนบรรณานุกรม</em>.</div>
+            </div>
+            <div class="element-card el-retrieve">
+              <div class="el-num">4</div>
+              <div class="el-title">วันที่สืบค้น</div>
+              <div class="el-desc">สืบค้นเมื่อ วัน เดือน ปี,</div>
+              <div class="el-example">เช่น: สืบค้นเมื่อ 1 มกราคม 2566,</div>
+            </div>
+            <div class="element-card el-url">
+              <div class="el-num">5</div>
+              <div class="el-title">URL / แหล่งที่มา</div>
+              <div class="el-desc">จาก ที่อยู่เว็บไซต์</div>
+              <div class="el-example">เช่น: จาก https://www.example.com</div>
+            </div>
+          </div>
+
+          <div class="example-section">
+            <h3>✅ ตัวอย่างบรรณานุกรมออนไลน์</h3>
+            <div class="example-box">
+              <div class="example-item">
+                <div class="example-label">บทความออนไลน์</div>
+                <div class="example-ref">วิชัย วงษ์ใหญ่. (2564). <em>การพัฒนาทักษะการอ่าน</em>. สืบค้นเมื่อ 10 มีนาคม 2566, จาก https://www.edu.moe.go.th/article</div>
+              </div>
+              <div class="example-item">
+                <div class="example-label">เว็บไซต์หน่วยงาน</div>
+                <div class="example-ref">กระทรวงศึกษาธิการ. (2565). <em>นโยบายการศึกษาไทย</em>. สืบค้นเมื่อ 5 มิถุนายน 2566, จาก https://www.moe.go.th/policy</div>
+              </div>
+              <div class="example-item">
+                <div class="example-label">บทความที่ไม่ระบุปี</div>
+                <div class="example-ref">ราชบัณฑิตยสถาน. (n.d.). <em>พจนานุกรมฉบับราชบัณฑิตยสถาน</em>. สืบค้นเมื่อ 20 กรกฎาคม 2566, จาก https://www.royin.go.th</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab: Tips -->
+      <div class="tab-content" id="tab-tips">
+        <div class="lesson-card">
+          <div class="lesson-card-header">
+            <span class="lesson-icon">💡</span>
+            <h2>เคล็ดลับสำคัญในการเขียนบรรณานุกรม</h2>
+          </div>
+
+          <div class="tips-grid">
+            <div class="tip-card tip-1">
+              <div class="tip-icon">🔤</div>
+              <h3>ชื่อผู้แต่ง</h3>
+              <ul>
+                <li>ภาษาไทย: ชื่อ นามสกุล (ไม่ต้องกลับ)</li>
+                <li>ภาษาอังกฤษ: นามสกุล, ชื่อต้น.</li>
+                <li>ผู้แต่ง 2 คน: คั่นด้วย " & " หรือ " และ "</li>
+                <li>ผู้แต่ง 3+ คน: ระบุทุกคนจนถึง 7 คน</li>
+              </ul>
+            </div>
+            <div class="tip-card tip-2">
+              <div class="tip-icon">📅</div>
+              <h3>ปีพิมพ์</h3>
+              <ul>
+                <li>ใส่ในวงเล็บ: (2566).</li>
+                <li>ไม่ทราบปี ใช้: (n.d.).</li>
+                <li>ตามด้วยจุดหลังวงเล็บเสมอ</li>
+              </ul>
+            </div>
+            <div class="tip-card tip-3">
+              <div class="tip-icon">📝</div>
+              <h3>ชื่อเรื่อง</h3>
+              <ul>
+                <li>หนังสือ: ตัวเอียง</li>
+                <li>บทความ: ไม่ต้องตัวเอียง</li>
+                <li>วารสาร: ชื่อวารสารตัวเอียง</li>
+                <li>ตัวอักษรแรกพิมพ์ใหญ่เท่านั้น</li>
+              </ul>
+            </div>
+            <div class="tip-card tip-4">
+              <div class="tip-icon">⚠️</div>
+              <h3>ข้อควรระวัง</h3>
+              <ul>
+                <li>เว้นบรรทัดที่สองย่อหน้า (hanging indent)</li>
+                <li>เรียงตามตัวอักษรของผู้แต่ง</li>
+                <li>ใช้จุด (.) คั่นระหว่างส่วนต่างๆ</li>
+                <li>ภาษาไทยกับอังกฤษแยกรายการ</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="comparison-table">
+            <h3>📊 เปรียบเทียบ: หนังสือ vs ออนไลน์</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>ส่วนประกอบ</th>
+                  <th>📗 หนังสือ</th>
+                  <th>🌐 ออนไลน์</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>ชื่อผู้แต่ง</td><td>✅</td><td>✅</td></tr>
+                <tr><td>ปี</td><td>✅ (ปีพิมพ์)</td><td>✅ (ปีเผยแพร่)</td></tr>
+                <tr><td>ชื่อเรื่อง</td><td>✅ ตัวเอียง</td><td>✅ ตัวเอียง</td></tr>
+                <tr><td>ครั้งที่พิมพ์</td><td>✅ (ถ้ามี)</td><td>❌</td></tr>
+                <tr><td>สถานที่พิมพ์</td><td>✅</td><td>❌</td></tr>
+                <tr><td>สำนักพิมพ์</td><td>✅</td><td>❌</td></tr>
+                <tr><td>วันที่สืบค้น</td><td>❌</td><td>✅</td></tr>
+                <tr><td>URL</td><td>❌</td><td>✅</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="learn-footer">
+        <button class="btn btn-primary" onclick="startGame()">
+          <span class="btn-icon">🎮</span> เริ่มเล่นเกมเลย!
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SCREEN: GAME ===== -->
+  <div class="screen" id="screen-game">
+    <div class="game-container">
+      <!-- Header -->
+      <div class="game-header">
+        <button class="btn-back" onclick="confirmBack()">← กลับ</button>
+        <div class="game-info">
+          <div class="game-score-box">
+            <span class="score-label">⭐ คะแนน</span>
+            <span class="score-value" id="score-display">0</span>
+          </div>
+          <div class="game-level-box">
+            <span class="level-label">🎯 ด่าน</span>
+            <span class="level-value" id="level-display">1</span>/<span id="total-levels">10</span>
+          </div>
+          <div class="game-lives-box">
+            <span id="lives-display">❤️❤️❤️</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Progress Bar -->
+      <div class="progress-bar-wrap">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+
+      <!-- Question Card -->
+      <div class="question-card" id="question-card">
+        <div class="question-type-badge" id="q-type-badge">📗 หนังสือ</div>
+        <h2 class="question-title">จัดเรียงส่วนประกอบให้ถูกต้อง!</h2>
+        <p class="question-hint" id="q-hint">ลากและวางชิ้นส่วนให้เป็นบรรณานุกรมที่ถูกต้อง</p>
+      </div>
+
+      <!-- Source Info -->
+      <div class="source-info-card" id="source-info">
+        <div class="source-info-content" id="source-info-content"></div>
+      </div>
+
+      <!-- Drop Zone -->
+      <div class="drop-zone-wrap">
+        <div class="drop-zone-label">📌 วางชิ้นส่วนที่นี่ (ตามลำดับ)</div>
+        <div class="drop-zone" id="drop-zone"></div>
+      </div>
+
+      <!-- Drag Items Pool -->
+      <div class="drag-pool-label">🧩 ชิ้นส่วนที่มีทั้งหมด (แตะหรือลากมาวาง)</div>
+      <div class="drag-pool" id="drag-pool"></div>
+
+      <!-- Action Buttons -->
+      <div class="game-actions">
+        <button class="btn btn-hint" id="btn-hint" onclick="useHint()">
+          💡 คำใบ้ (-5 คะแนน)
+        </button>
+        <button class="btn btn-check" id="btn-check" onclick="checkAnswer()">
+          ✅ ตรวจคำตอบ
+        </button>
+        <button class="btn btn-reset" onclick="resetCurrentQuestion()">
+          🔄 เริ่มใหม่
+        </button>
+      </div>
+
+      <!-- Feedback -->
+      <div class="feedback-overlay" id="feedback-overlay" style="display:none;">
+        <div class="feedback-card" id="feedback-card">
+          <div class="feedback-icon" id="feedback-icon"></div>
+          <div class="feedback-title" id="feedback-title"></div>
+          <div class="feedback-msg" id="feedback-msg"></div>
+          <div class="correct-answer-box" id="correct-answer-box"></div>
+          <button class="btn btn-primary" id="btn-next" onclick="nextQuestion()">ถัดไป →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SCREEN: RESULT ===== -->
+  <div class="screen" id="screen-result">
+    <div class="result-container">
+      <div class="result-trophy" id="result-trophy">🏆</div>
+      <h1 class="result-title" id="result-title">ยอดเยี่ยมมาก!</h1>
+      <div class="result-score-wrap">
+        <div class="result-score-label">คะแนนที่ได้</div>
+        <div class="result-score" id="result-score">0</div>
+        <div class="result-score-max" id="result-score-max">จาก 100 คะแนน</div>
+      </div>
+      <div class="result-stars" id="result-stars"></div>
+      <div class="result-msg" id="result-msg"></div>
+
+      <div class="result-summary" id="result-summary"></div>
+
+      <div class="result-buttons">
+        <button class="btn btn-primary" onclick="restartGame()">🔄 เล่นอีกครั้ง</button>
+        <button class="btn btn-secondary" onclick="showScreen('screen-home')">🏠 หน้าหลัก</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
